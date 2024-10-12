@@ -1,0 +1,28 @@
+python -m venv venv
+venv/Scripts/activate
+pip install django
+django-admin startproject core .
+python manage.py startapp book
+mkdir static
+mkdir template
+mkdir media
+python manage.py migrate
+python manage.py createsuperuser
+pip install pillow
+pip install djangorestframework
+    INSTALL_APP = [
+        'rest_framework',
+        'book',
+    ]
+
+core >>> urls.py >>>
+    from django.urls import path, include
+    +
+    path('', include('book.urls')
+book >>> serializers.py
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+#swagger ni urnatish uchun
+
+pip install drf-yasg
