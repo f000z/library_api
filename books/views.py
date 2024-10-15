@@ -5,6 +5,7 @@ from .serializers import BookSerializer
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.views import APIView
 
 from django.contrib.auth import get_user_model
 
@@ -51,9 +52,6 @@ class BookListCreateApiView(generics.ListCreateAPIView):
 class BookUpdateDeleteApiView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Books.objects.all()
     serializer_class = BookSerializer
-
-
-from rest_framework.views import APIView
 
 
 class BookListApi(APIView):
